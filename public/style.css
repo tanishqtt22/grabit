@@ -35,24 +35,129 @@ body {
 header {
     background: var(--primary-color);
     color: var(--background-color);
-    padding: 2rem 1.5rem;
-    text-align: center;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+.logo-container .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--background-color);
 }
 
-header p {
-    margin: 0.5rem 0 0;
-    font-size: 1.2rem;
-    opacity: 0.9;
+.logo-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
 }
+
+.logo-text h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+nav .nav-item {
+    color: var(--background-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav .nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease-out;
+}
+
+nav .nav-item:hover::after, .dropdown:hover .nav-item::after {
+    width: 100%;
+    left: 0;
+}
+nav .nav-item:hover {
+    color: var(--accent-color);
+}
+.arrow {
+    font-size: 0.7em;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--primary-color);
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 0 0 8px 8px;
+    z-index: 10;
+    overflow: hidden;
+    animation: fadeInDown 0.3s ease-out;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--background-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover, .dropdown-content a.active-category {
+    background-color: var(--accent-color);
+}
+
 
 /* Main Content Styles */
 main {
@@ -102,22 +207,31 @@ main {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0; /* Start with opacity 0 for animation */
+    opacity: 0; /* Start hidden for JS IntersectionObserver */
+    transform: translateY(30px); /* Start slightly lower */
+    visibility: hidden; /* Hide until animated */
+}
+
+.product-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 /* Staggered animation for cards */
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.2s; }
-.product-card:nth-child(3) { animation-delay: 0.3s; }
-.product-card:nth-child(4) { animation-delay: 0.4s; }
-.product-card:nth-child(5) { animation-delay: 0.5s; }
-.product-card:nth-child(6) { animation-delay: 0.6s; }
+.product-card.is-visible:nth-child(1) { transition-delay: 0.1s; }
+.product-card.is-visible:nth-child(2) { transition-delay: 0.2s; }
+.product-card.is-visible:nth-child(3) { transition-delay: 0.3s; }
+.product-card.is-visible:nth-child(4) { transition-delay: 0.4s; }
+.product-card.is-visible:nth-child(5) { transition-delay: 0.5s; }
+.product-card.is-visible:nth-child(6) { transition-delay: 0.6s; }
 
-@keyframes fadeIn {
+
+@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
@@ -126,8 +240,8 @@ main {
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.15);
 }
 
 .product-image-container {
@@ -148,7 +262,7 @@ main {
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .product-info {
@@ -198,7 +312,17 @@ main {
 
 .buy-button:hover {
     background-color: #d68f30; /* Slightly darker shade of accent */
-    transform: scale(1.02);
+    transform: scale(1.03);
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1.03);
+    }
+    to {
+        transform: scale(1.05);
+    }
 }
 
 /* Footer Styles */
@@ -216,17 +340,38 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    .logo-container {
+        margin-bottom: 1rem;
+    }
+    nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+    nav li {
+        margin: 0 15px;
+    }
     #product-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 2.2rem;
+    .logo-text h1 {
+        font-size: 2rem;
     }
 
-    header p {
+    .logo-text p {
+        font-size: 0.8rem;
+    }
+
+    nav li {
+        margin: 0 10px;
+    }
+    nav .nav-item {
         font-size: 1rem;
     }
 

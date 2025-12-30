@@ -1,50 +1,332 @@
 [
-    {
-        "id": 1,
-        "title": "Wireless Noise-Cancelling Headphones",
-        "description": "Immerse yourself in music with these high-fidelity, noise-cancelling headphones. Long-lasting battery and crystal-clear audio.",
-        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$149.99",
-        "amazonLink": "https://github.com/tanishqtt22/grabit"
-    },
-    {
-        "id": 2,
-        "title": "Smartwatch with Fitness Tracker",
-        "description": "Stay connected and track your fitness goals. Monitors heart rate, sleep, and steps. Sleek design for any occasion.",
-        "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$199.00",
-        "amazonLink": "https://www.amazon.com/s?k=smartwatch"
-    },
-    {
-        "id": 3,
-        "title": "Portable Bluetooth Speaker",
-        "description": "Take your music anywhere. This waterproof speaker delivers powerful sound and has a built-in microphone for calls.",
-        "image": "https://images.unsplash.com/photo-1589256469027-1c21a572d159?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$79.50",
-        "amazonLink": "https://www.amazon.com/s?k=bluetooth+speaker"
-    },
-    {
-        "id": 4,.
-        "title": "4K Action Camera",
-        "description": "Capture your adventures in stunning 4K. Waterproof, durable, and packed with features like image stabilization.",
-        "image": "https://images.unsplash.com/photo-1563298723-d07aa8228032?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$250.00",
-        "amazonLink": "https://www.amazon.com/s?k=action+camera"
-    },
-    {
-        "id": 5,
-        "title": "Ergonomic Office Chair",
-        "description": "Improve your posture and comfort during long work hours. Fully adjustable with lumbar support and breathable mesh.",
-        "image": "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$299.99",
-        "amazonLink": "https://www.amazon.com/s?k=office+chair"
-    },
-    {
-        "id": 6,
-        "title": "Single Serve Coffee Maker",
-        "description": "Brew your favorite coffee in minutes. Compact design is perfect for small spaces. Compatible with K-Cup pods.",
-        "image": "https://images.unsplash.com/photo-1622483758336-a8342a342413?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$89.99",
-        "amazonLink": "https://www.amazon.com/s?k=coffee+maker"
-    }
+  {
+    "id": 1,
+    "title": "AeroBook UltraSlim Laptop",
+    "description": "Powerful and lightweight laptop for professionals. Features a 14-inch QHD display and Intel's latest processor.",
+    "price": 103200,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1926&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=ultraslim+laptop&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 2,
+    "title": "ChronoFit Smartwatch",
+    "description": "Track your fitness, receive notifications, and stay connected with this stylish and feature-packed smartwatch.",
+    "price": 20749,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=smartwatch&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 3,
+    "title": "SoundScape Pro Headphones",
+    "description": "Immerse yourself in crystal-clear audio with industry-leading noise cancellation. Perfect for travel and focus.",
+    "price": 28967,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=noise+cancelling+headphones&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 10,
+    "title": "Wireless Ergonomic Mouse",
+    "description": "Designed for comfort and precision, this wireless mouse features a long-lasting battery and customizable buttons.",
+    "price": 4979,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1628126744520-22c9f0e1d5a7?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=wireless+mouse&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 11,
+    "title": "Portable Power Bank 20000mAh",
+    "description": "Keep your devices charged on the go with this high-capacity portable power bank. Fast charging compatible.",
+    "price": 3735,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1629239564619-bc78b3f1c8d3?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=power+bank&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 12,
+    "title": "Smart Home Hub",
+    "description": "Control all your smart devices from one central hub. Compatible with most smart home ecosystems.",
+    "price": 10747,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1596701062351-8c2c14d8a21c?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=smart+home+hub&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 13,
+    "title": "4K Action Camera Pro",
+    "description": "Capture your adventures in stunning 4K. Waterproof, durable, and packed with features like image stabilization.",
+    "price": 24817,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1563298723-d07aa8228032?q=80&w=2070&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=4k+action+camera&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 14,
+    "title": "Gaming Monitor 144Hz",
+    "description": "Experience ultra-smooth gameplay with this 144Hz refresh rate gaming monitor. QHD resolution for crisp visuals.",
+    "price": 33199,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1617411993213-91f603c40a7b?q=80&w=2070&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=gaming+monitor&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 15,
+    "title": "Bluetooth Portable Speaker",
+    "description": "Take your music anywhere. This waterproof speaker delivers powerful sound and has a built-in microphone for calls.",
+    "price": 6608,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1589256469027-1c21a572d159?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=bluetooth+portable+speaker&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 16,
+    "title": "E-Reader Paperwhite",
+    "description": "Read comfortably for hours with this glare-free e-reader. Built-in adjustable light and long battery life.",
+    "price": 9959,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1549465220-1a9088f1155a?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.amazon.com/s?k=e-reader&tag=GRABIT_AFFILIATE_TAG",
+    "category": "electronics",
+    "vendor": "Amazon"
+  },
+  {
+    "id": 4,
+    "title": "Radiant Glow Foundation",
+    "description": "A lightweight, full-coverage foundation that leaves a natural, radiant finish. Available in 40 shades.",
+    "price": 3319,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=foundation",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 5,
+    "title": "Matte Velvet Lipstick",
+    "description": "A long-lasting, highly pigmented matte lipstick that is comfortable to wear and does not feather.",
+    "price": 1992,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1596701062351-8c2c14d8a21c?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=lipstick",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 6,
+    "title": "Hydrating Skincare Set",
+    "description": "A complete 3-step routine including a cleanser, serum, and moisturizer to boost hydration and glow.",
+    "price": 7055,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1936&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=skincare+set",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 17,
+    "title": "Glamour Eyeshadow Palette",
+    "description": "Create endless looks with this versatile eyeshadow palette featuring a mix of matte and shimmer shades.",
+    "price": 2905,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1589782504240-39958d578687?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=eyeshadow",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 18,
+    "title": "Volumizing Mascara",
+    "description": "Achieve dramatic volume and length with this smudge-proof and long-wearing mascara.",
+    "price": 1535,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1612053151893-d2d4c0c451a9?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=mascara",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 19,
+    "title": "Gentle Facial Cleanser",
+    "description": "A mild, pH-balanced cleanser that effectively removes impurities without stripping the skin's natural moisture.",
+    "price": 1826,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1622394590212-04e38686e09a?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=cleanser",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 20,
+    "title": "Anti-Aging Serum",
+    "description": "Visibly reduces fine lines and wrinkles while deeply hydrating the skin. Suitable for all skin types.",
+    "price": 4149,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1616801456574-d4c3a7c6c4c5?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=serum",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 21,
+    "title": "Broad Spectrum SPF 50 Sunscreen",
+    "description": "Lightweight, non-greasy sunscreen offering high protection against UVA/UVB rays. Ideal for daily use.",
+    "price": 2324,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1629198642055-6677f5e8f4c1?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=sunscreen",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 22,
+    "title": "Signature Eau de Parfum",
+    "description": "A captivating fragrance with notes of jasmine, sandalwood, and vanilla. Long-lasting and elegant.",
+    "price": 7900,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1541257404415-373e35a14674?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=perfume",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 23,
+    "title": "Professional Nail Polish Set",
+    "description": "A collection of 10 vibrant, chip-resistant nail polishes for salon-quality manicures at home.",
+    "price": 3320,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1519965000-4740e53a3e66?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.nykaa.com/search/result/?q=nail+polish",
+    "category": "cosmetics",
+    "vendor": "Nykaa"
+  },
+  {
+    "id": 7,
+    "title": "Classic Denim Jacket",
+    "description": "A timeless wardrobe staple. This denim jacket is made from premium cotton for a comfortable fit.",
+    "price": 7469,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1551107696-a4b275a5d8a3?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=denim+jacket",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 8,
+    "title": "Bohemian Summer Dress",
+    "description": "A flowy and lightweight maxi dress perfect for warm summer days. Features a vibrant floral print.",
+    "price": 5437,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=summer+dress",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 9,
+    "title": "Men's Classic T-Shirt",
+    "description": "A soft and durable crewneck t-shirt made from 100% organic cotton. A versatile piece for any outfit.",
+    "price": 2407,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1581655353564-df123a164d17?q=80&w=1964&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=mens+t-shirt",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 24,
+    "title": "Comfort Fit Hoodie",
+    "description": "An essential hoodie for everyday comfort. Made from a soft cotton blend with a fleece lining.",
+    "price": 3735,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1588692797699-2d1b0d2d3e4b?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=hoodie",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 25,
+    "title": "Stylish Running Sneakers",
+    "description": "Lightweight and supportive running shoes designed for performance and style. Perfect for daily runs or casual wear.",
+    "price": 8197,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1542291026-78fe298d001c?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=sneakers",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 26,
+    "title": "High-Waisted Skinny Jeans",
+    "description": "Flattering high-waisted skinny jeans with just the right amount of stretch for all-day comfort.",
+    "price": 4565,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1565084888279-bb7d72868212?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=jeans",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 27,
+    "title": "Men's Formal Dress Shirt",
+    "description": "A crisp, slim-fit dress shirt made from breathable cotton. Ideal for business or special occasions.",
+    "price": 4980,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1522513904494-b15234237190?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=dress+shirt",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 28,
+    "title": "Cozy Winter Parka",
+    "description": "Stay warm in the coldest weather with this insulated and waterproof winter parka. Features a faux fur hood.",
+    "price": 14940,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1563298723-d07aa8228032?q=80&w=2070&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=parka",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 29,
+    "title": "Women's Yoga Pants",
+    "description": "High-waisted, buttery-soft yoga pants designed for ultimate comfort and flexibility during your workouts.",
+    "price": 3154,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1591128033325-1e3c86121406?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=yoga+pants",
+    "category": "clothing",
+    "vendor": "Meesho"
+  },
+  {
+    "id": 30,
+    "title": "Cashmere Blend Scarf",
+    "description": "Luxuriously soft and warm cashmere blend scarf. A perfect accessory for chilly days.",
+    "price": 6225,
+    "currency": "₹",
+    "image": "https://images.unsplash.com/photo-1520140294657-414876b5d55b?q=80&w=1974&auto=format&fit=crop",
+    "productUrl": "https://www.meesho.com/search?q=scarf",
+    "category": "clothing",
+    "vendor": "Meesho"
+  }
 ]
