@@ -1,11 +1,45 @@
+import * as THREE from 'three';
+
+// --- 1. 3D SCENE SETUP ---
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector('#bg'),
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.setZ(30);
+
+// 3D Object
+const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+const material = new THREE.MeshStandardMaterial({ color: 0xffa500, wireframe: true });
+const torusKnot = new THREE.Mesh(geometry, material);
+scene.add(torusKnot);
+
+// Lighting
+const pointLight = new THREE.PointLight(0xffffff, 100, 100);
+pointLight.position.set(5, 5, 5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+scene.add(pointLight, ambientLight);
+
+// Animation Loop
+function animate() {
+    requestAnimationFrame(animate);
+    torusKnot.rotation.x += 0.001;
+    torusKnot.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+}
+animate();
+
+
+// --- 2. PRODUCT DATA & LOGIC ---
+
 async function fetchProducts() {
     try {
         const response = await fetch('products.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const products = await response.json();
-        // Convert price to number for sorting
         return products.map(p => ({ ...p, price: parseFloat(p.price) }));
     } catch (error) {
         console.error("Could not fetch products:", error);
@@ -13,26 +47,12 @@ async function fetchProducts() {
     }
 }
 
-// --- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ---
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            entry.target.style.transitionDelay = `${index * 100}ms`;
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { rootMargin: '0px', threshold: 0.1 });
-
-// --- RENDERING LOGIC ---
 function renderProducts(productsToRender) {
     const productGrid = document.getElementById('product-grid');
     productGrid.innerHTML = '';
-    const oldCards = document.querySelectorAll('.product-card');
-    oldCards.forEach(card => observer.unobserve(card));
 
     if (productsToRender.length === 0) {
-        productGrid.innerHTML = '<p class="no-results">No products found. Try a different search or category.</p>';
+        productGrid.innerHTML = '<p class="no-results" style="color: #a3a3a3; text-align: center;">No products found.</p>';
         return;
     }
 
@@ -63,14 +83,14 @@ function renderProducts(productsToRender) {
 
         const price = document.createElement('p');
         price.className = 'product-price';
-        price.textContent = `${product.currency}${product.price.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+        price.textContent = `${product.currency || '₹'}${product.price.toLocaleString('en-IN')}`;
 
         const buyButton = document.createElement('a');
         buyButton.href = product.productUrl;
         buyButton.target = '_blank';
         buyButton.rel = 'noopener noreferrer sponsored';
         buyButton.className = 'buy-button';
-        buyButton.textContent = `View on ${product.vendor || 'Amazon'}`;
+        buyButton.textContent = `View on ${product.vendor || 'Store'}`;
 
         info.appendChild(title);
         info.appendChild(description);
@@ -87,19 +107,16 @@ function renderProducts(productsToRender) {
         });
 
         productGrid.appendChild(card);
-        observer.observe(card);
     });
 }
 
 function applyFiltersAndSorting(allProducts, category, sort, searchTerm) {
     let filtered = [...allProducts];
 
-    // Filter by category
     if (category !== 'all') {
         filtered = filtered.filter(p => p.category === category);
     }
-
-    // Filter by search term
+    
     if (searchTerm) {
         filtered = filtered.filter(p =>
             p.title.toLowerCase().includes(searchTerm) ||
@@ -107,7 +124,6 @@ function applyFiltersAndSorting(allProducts, category, sort, searchTerm) {
         );
     }
 
-    // Apply sorting
     switch (sort) {
         case 'price-asc':
             filtered.sort((a, b) => a.price - b.price);
@@ -129,15 +145,34 @@ function setActive(selector, value) {
     const attribute = selector.includes('category') ? 'data-category' : 'data-sort';
     links.forEach(link => {
         if (link.getAttribute(attribute) === value) {
-            link.classList.add('active-category'); // Re-use the same style for active state
+            link.classList.add('active-category');
         } else {
             link.classList.remove('active-category');
         }
     });
 }
 
-// --- MAIN EVENT LISTENER ---
+// --- 3. SCROLL & INTERACTION HANDLERS ---
+
+// Scroll handler for 3D animation
+function handleScroll3D() {
+    const t = document.body.getBoundingClientRect().top;
+    torusKnot.rotation.x += 0.005;
+    torusKnot.rotation.y += 0.0075;
+    torusKnot.rotation.z += 0.005;
+
+    camera.position.z = t * -0.01 + 30;
+    camera.position.x = t * -0.0002;
+    camera.rotation.y = t * -0.0002;
+}
+document.body.onscroll = handleScroll3D;
+handleScroll3D();
+
+
+// --- 4. INITIALIZATION ---
+
 document.addEventListener('DOMContentLoaded', async () => {
+    // --- Product Logic Init ---
     const searchBar = document.getElementById('search-bar');
     const categoryLinks = document.querySelectorAll('[data-category]');
     const sortLinks = document.querySelectorAll('[data-sort]');
@@ -154,21 +189,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         setActive('[data-sort]', currentSort);
     };
 
-    // Initial render
-    updateDisplay();
+    updateDisplay(); // Initial render
 
-    // Category filtering
     categoryLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             currentCategory = link.dataset.category;
-            currentSearch = ''; // Reset search
+            currentSearch = '';
             searchBar.value = '';
             updateDisplay();
         });
     });
 
-    // Sorting
     sortLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -177,11 +209,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // Search functionality
     searchBar.addEventListener('input', (e) => {
         currentSearch = e.target.value.toLowerCase().trim();
-        // Optional: Reset category when user types, or filter within the category.
-        // For now, we filter within the currently selected category or all.
         updateDisplay();
+    });
+
+    // --- Window Resize ---
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
     });
 });
