@@ -7,7 +7,7 @@ const products = [
         description: "Immerse yourself in music with these high-fidelity, noise-cancelling headphones. Long-lasting battery and crystal-clear audio.",
         image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: "$149.99",
-        amazonLink: "https://www.amazon.com/s?k=headphones" // <-- Replace with your affiliate link
+        amazonLink: "https://amzn.to/45f06v4" // <-- Replace with your affiliate link
     },
     {
         id: 2,
