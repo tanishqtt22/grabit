@@ -1,55 +1,16 @@
-// --- PRODUCT DATA ---
-// Replace this with your actual product data and affiliate links.
-const products = [
-    {
-        id: 1,
-        title: "Wireless Noise-Cancelling Headphones",
-        description: "Immerse yourself in music with these high-fidelity, noise-cancelling headphones. Long-lasting battery and crystal-clear audio.",
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$149.99",
-        amazonLink: "https://amzn.to/45f06v4" // <-- Replace with your affiliate link
-    },
-    {
-        id: 2,
-        title: "Smartwatch with Fitness Tracker",
-        description: "Stay connected and track your fitness goals. Monitors heart rate, sleep, and steps. Sleek design for any occasion.",
-        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$199.00",
-        amazonLink: "https://www.amazon.com/s?k=smartwatch" // <-- Replace with your affiliate link
-    },
-    {
-        id: 3,
-        title: "Portable Bluetooth Speaker",
-        description: "Take your music anywhere. This waterproof speaker delivers powerful sound and has a built-in microphone for calls.",
-        image: "https://images.unsplash.com/photo-1589256469027-1c21a572d159?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$79.50",
-        amazonLink: "https://www.amazon.com/s?k=bluetooth+speaker" // <-- Replace with your affiliate link
-    },
-    {
-        id: 4,
-        title: "4K Action Camera",
-        description: "Capture your adventures in stunning 4K. Waterproof, durable, and packed with features like image stabilization.",
-        image: "https://images.unsplash.com/photo-1563298723-d07aa8228032?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$250.00",
-        amazonLink: "https://www.amazon.com/s?k=action+camera" // <-- Replace with your affiliate link
-    },
-    {
-        id: 5,
-        title: "Ergonomic Office Chair",
-        description: "Improve your posture and comfort during long work hours. Fully adjustable with lumbar support and breathable mesh.",
-        image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$299.99",
-        amazonLink: "https://www.amazon.com/s?k=office+chair" // <-- Replace with your affiliate link
-    },
-    {
-        id: 6,
-        title: "Single Serve Coffee Maker",
-        description: "Brew your favorite coffee in minutes. Compact design is perfect for small spaces. Compatible with K-Cup pods.",
-        image: "https://images.unsplash.com/photo-1622483758336-a8342a342413?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: "$89.99",
-        amazonLink: "https://www.amazon.com/s?k=coffee+maker" // <-- Replace with your affiliate link
+async function fetchProducts() {
+    try {
+        const response = await fetch('products.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const products = await response.json();
+        return products;
+    } catch (error) {
+        console.error("Could not fetch products:", error);
+        return []; // Return an empty array on error
     }
-];
+}
 
 // --- CORE LOGIC ---
 
@@ -126,17 +87,18 @@ function renderProducts(productsToRender) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const searchBar = document.getElementById('search-bar');
+    const allProducts = await fetchProducts();
 
     // Initial render of all products
-    renderProducts(products);
+    renderProducts(allProducts);
 
     // Add event listener for the search bar
     if (searchBar) {
         searchBar.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const filteredProducts = products.filter(product => 
+            const filteredProducts = allProducts.filter(product => 
                 product.title.toLowerCase().includes(searchTerm) || 
                 product.description.toLowerCase().includes(searchTerm)
             );
